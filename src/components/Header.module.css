@@ -1,0 +1,15 @@
+.header {
+    grid-area: header;
+    background-color: aqua;
+  }
+  .header img {
+    width: 80px;
+  }
+  .text {
+    color: gold;
+    font-weight: 900;
+  }
+  .text.active {
+    color: green;
+    font-weight: 1200;
+  }

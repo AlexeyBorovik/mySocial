@@ -1,6 +1,8 @@
+import classes from './SideBar.module.css'
+
 const SideBar = () => {
     return (
-        <div className='sidebar'>
+        <div className={classes.sidebar}>
             <div>
                 <a href='?'>News</a></div>
             <div>

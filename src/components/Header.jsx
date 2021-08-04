@@ -1,9 +1,11 @@
+import classes from './Header.module.css'
+
 const Header = () => {
     return (
-        <div className='header'>
+        <div className={classes.header}>
             <img src = "/Images/LOGO.png" alt =""/>
-            <div>Слоган</div>
-            <div>Кнопки</div>
+            <div className = {classes.text}>Слоган</div>
+            <div className ={`${classes.active} ${classes.text} `}>Кнопки</div>
         </div>
     )
 }
