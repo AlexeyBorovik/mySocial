@@ -1,9 +1,15 @@
 import './App.css';
+import Header from './components/Header.jsx';
+import News from './components/News';
+import SideBar from './components/SideBar.jsx';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header>Вот теперь начнем</header>
+    <div className="app-wrapper">
+      <Header />
+      <SideBar />
+      <News />
     </div>
   );
 }
