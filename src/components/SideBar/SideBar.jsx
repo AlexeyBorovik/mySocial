@@ -1,4 +1,4 @@
-import classes from './SideBar.module.css'
+import classes from '../SideBar/SideBar.module.css'
 
 const SideBar = () => {
     return (
