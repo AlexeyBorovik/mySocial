@@ -1,4 +1,10 @@
-.news {
-    grid-area: news;
-    background-color:wheat;
+.post {
+    font-size: 15pt;
+    font-weight: bold;
+    color: lawngreen;
   }
+ .post img {
+   height: 70px;
+   width: 70px;
+   border-radius: 40%;
+ }
