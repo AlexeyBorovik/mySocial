@@ -1,0 +1,23 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialoguesList{
+    background-color: brown;
+}
+.item{
+
+}
+.item a{
+    text-decoration: none;
+}
+
+.dialogue {
+    background-color: coral;
+
+}
+
+.message{
+
+}
