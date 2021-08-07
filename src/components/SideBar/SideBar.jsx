@@ -1,20 +1,21 @@
+import { NavLink } from 'react-router-dom';
 import classes from '../SideBar/SideBar.module.css'
 
 const SideBar = () => {
     return (
         <div className={classes.sidebar}>
             <div>
-                <a href='/news'>News</a></div>
+                <NavLink to='/news' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>News</NavLink></div>
             <div>
-                <a href='/messages'>Messages</a></div>
+                <NavLink to='/messages' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Messages</NavLink></div>
             <div>
-                <a href='portfolio'>Portfolio</a></div>
+                <NavLink to='portfolio' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Portfolio</NavLink></div>
             <div>
-                <a href='companies'>Companies</a></div>
+                <NavLink to='companies' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Companies</NavLink></div>
             <div>
-                <a href='partners'>Partners</a></div>
+                <NavLink to='partners' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Partners</NavLink></div>
             <div>
-                <a href='music'>Music</a></div>
+                <NavLink to='music'>Music</NavLink></div>
         </div>
     )
 }

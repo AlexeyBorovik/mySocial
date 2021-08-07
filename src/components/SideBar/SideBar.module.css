@@ -1,4 +1,19 @@
 .sidebar {
     grid-area: sidebar;
     background-color: ivory;
+    padding: 15px 20px 20px 15px;
   }
+
+.sidebar a{
+  font-size: medium;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 25px;
+}  
+
+.sidebar a.active {
+  color: aqua;
+  font-size: larger;
+  font-weight: bolder;
+}
