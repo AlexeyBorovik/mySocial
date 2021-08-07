@@ -4,17 +4,17 @@ const SideBar = () => {
     return (
         <div className={classes.sidebar}>
             <div>
-                <a href='?'>News</a></div>
+                <a href='/news'>News</a></div>
             <div>
-                <a href='?'>Messages</a></div>
+                <a href='/messages'>Messages</a></div>
             <div>
-                <a href='?'>Portfolio</a></div>
+                <a href='portfolio'>Portfolio</a></div>
             <div>
-                <a href='?'>Companies</a></div>
+                <a href='companies'>Companies</a></div>
             <div>
-                <a href='?'>Partners</a></div>
+                <a href='partners'>Partners</a></div>
             <div>
-                <a href='?'>Music</a></div>
+                <a href='music'>Music</a></div>
         </div>
     )
 }
