@@ -1,12 +1,17 @@
 .app-wrapper {
   display: grid;
+  margin: 0 auto;
 
 grid-template-areas:
   "header header"
-  'sidebar news';
+  'sidebar content';
 
 
   grid-template-rows: auto 1fr;
   grid-template-columns: auto 2fr;
   
+}
+
+.app-wrapper-content {
+  grid-area: content;
 }
