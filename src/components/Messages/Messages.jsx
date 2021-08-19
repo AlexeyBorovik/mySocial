@@ -4,8 +4,8 @@ import DialogueItem from './DialogueItem'
 
 const Messages = (props) => {
 
-    let messageElements = props.messages.map(messages => <Message text={messages.text} />);
-    let dialoguesElements = props.dialogues.map(dialogues => <DialogueItem name={dialogues.name} />);
+    let messageElements = props.messagesPage.messages.map(messages => <Message text={messages.text} />);
+    let dialoguesElements = props.messagesPage.dialogues.map(dialogues => <DialogueItem name={dialogues.name} />);
 
 
     return (

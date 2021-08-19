@@ -4,7 +4,7 @@ import Post from './Posts/Post';
 
 const News = (props) => {
 
-    let postsElements = props.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
+    let postsElements = props.newsPage.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
 
     return (<div className={classes.news} >
         <div>
