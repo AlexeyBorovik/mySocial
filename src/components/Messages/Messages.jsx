@@ -1,15 +1,27 @@
 import classes from './Messages.module.css'
 import Message from './Message'
 import DialogueItem from './DialogueItem'
+import React from 'react'
 
 const Messages = (props) => {
 
     let messageElements = props.messagesPage.messages.map(messages => <Message text={messages.text} />);
     let dialoguesElements = props.messagesPage.dialogues.map(dialogues => <DialogueItem name={dialogues.name} />);
 
+    let newMessageElement = React.createRef();
+
+    let addNewMessage = () => {
+        let text = newMessageElement.current.value;
+        alert(text);
+    }
 
     return (
         <div className={classes.wrapper}>
+            <div>
+                <textarea ref={newMessageElement}>NewPost</textarea>
+                <button onClick={addNewMessage}>Add</button>
+            </div>
+
             <div className={classes.dialoguesList}>
                 {dialoguesElements}
             </div>
@@ -17,6 +29,7 @@ const Messages = (props) => {
             <div className={classes.dialogue}>
                 {messageElements}
             </div>
+
         </div>
     )
 }

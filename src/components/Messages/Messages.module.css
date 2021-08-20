@@ -1,10 +1,15 @@
 .wrapper{
     display: grid;
+    grid-template-areas: 
+    "add add"
+    "dialogues messages" ;
+    grid-template-rows: 2;
     grid-template-columns: 2fr 10fr;
 }
 
 .dialoguesList{
     background-color: brown;
+    grid-area: dialogues;
 }
 .item{
 
@@ -15,6 +20,7 @@
 
 .dialogue {
     background-color: coral;
+    grid-area: messages;
 
 }
 

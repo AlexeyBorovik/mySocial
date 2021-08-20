@@ -1,18 +1,24 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
+import React from 'react';
 
 
 const News = (props) => {
+
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        alert(text)
+    }
 
     let postsElements = props.newsPage.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
 
     return (<div className={classes.news} >
         <div>
-            News Area!!!
+            <textarea ref={newPostElement}>НУ вводи уже!!!</textarea>
             <br></br>
-            <textarea>НУ вводи уже!!!</textarea>
-            <br></br>
-            <button>Add New Post</button>
+            <button onClick={addPost}>Add</button>
         </div>
 
         <div>
