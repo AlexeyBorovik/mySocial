@@ -9,7 +9,7 @@ const News = (props) => {
 
     let addPost = () => {
         let text = newPostElement.current.value;
-        alert(text)
+        props.addPost(text)
     }
 
     let postsElements = props.newsPage.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
