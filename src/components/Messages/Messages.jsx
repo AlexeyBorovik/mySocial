@@ -12,13 +12,13 @@ const Messages = (props) => {
 
     let addNewMessage = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        props.addDialogue(text);
     }
 
     return (
         <div className={classes.wrapper}>
             <div>
-                <textarea ref={newMessageElement}>NewPost</textarea>
+                <textarea ref={newMessageElement}>NewMessage</textarea>
                 <button onClick={addNewMessage}>Add</button>
             </div>
 

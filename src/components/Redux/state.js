@@ -41,4 +41,12 @@ export let addPost = (postMessage) => {
   rerenderEntireTree(state);
 }
 
+export let addDialogue = (textMessage) => {
+  let newMessage = {
+    text: textMessage
+  }
+  state.messagesPage.messages.push(newMessage);
+  rerenderEntireTree(state);
+}
+
 export default state
