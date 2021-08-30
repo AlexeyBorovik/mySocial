@@ -1,6 +1,7 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
 import React from 'react';
+import { addPostActionCreator,updateNewPostActionCreator } from '../Redux/state';
 
 
 const News = (props) => {
@@ -10,16 +11,16 @@ const News = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-        props.addPost()
+        props.dispatch(addPostActionCreator())
     }
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.dispatch(updateNewPostActionCreator(text));
     }
-    
+
     return (<div className={classes.news} >
         <div>
-            <textarea onChange={onPostChange} ref={newPostElement} value={props.newsPage.newPostText}/>
+            <textarea onChange={onPostChange} ref={newPostElement} value={props.newsPage.newPostText} />
             <br></br>
             <button onClick={addPost}>Add</button>
         </div>

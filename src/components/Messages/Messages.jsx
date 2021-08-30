@@ -2,6 +2,7 @@ import classes from './Messages.module.css'
 import Message from './Message'
 import DialogueItem from './DialogueItem'
 import React from 'react'
+import { addDialogueActionCreator,updateNewMessageActionCreator } from '../Redux/state'
 
 const Messages = (props) => {
 
@@ -11,14 +12,21 @@ const Messages = (props) => {
     let newMessageElement = React.createRef();
 
     let addNewMessage = () => {
+        props.dispatch(addDialogueActionCreator());
+    }
+
+    let onNewMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.addDialogue(text);
+        props.dispatch(updateNewMessageActionCreator(text))
     }
 
     return (
         <div className={classes.wrapper}>
             <div>
-                <textarea ref={newMessageElement}>NewMessage</textarea>
+                <textarea 
+                ref={newMessageElement}
+                value={props.messagesPage.newMessageText} 
+                onChange={onNewMessageChange} />
                 <button onClick={addNewMessage}>Add</button>
             </div>
 

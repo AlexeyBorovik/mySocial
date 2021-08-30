@@ -26,42 +26,76 @@ let store = {
         { text: 'You`re awesome' },
         { text: 'Hey Niko, it`s Roman' },
         { text: 'Why are you ignoring me?! You`re coding again?!' }
-      ]
+      ],
+      newMessageText: 'Type here...'
     }
   },
-  getState() {
-    return this._state
-  },
+
+
   _noticeUser() {
     console.log('State Changed')
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      likes: 0,
-      dislikes: 0,
-      text: this._state.newsPage.newPostText,
-    }
-    this._state.newsPage.post.push(newPost);
-    this._state.newsPage.newPostText = '';
-    this._noticeUser(this._state);
-  },
-  updateNewPostText (newText) {
-    this._state.newsPage.newPostText = newText;
-    this._noticeUser(this._state)
-  },
-  addDialogue(textMessage) {
-    let newMessage = {
-      text: textMessage
-    }
-    this._state.messagesPage.messages.push(newMessage);
-    this._noticeUser(this._state);
+
+
+  getState() {
+    return this._state
   },
   subscribe(observer) {
     this._noticeUser = observer;
-  }
-};
+  },
 
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5,
+        likes: 6,
+        dislikes: 2,
+        text: this._state.newsPage.newPostText,
+      }
+      this._state.newsPage.post.push(newPost);
+      this._state.newsPage.newPostText = '';
+      this._noticeUser(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.newsPage.newPostText = action.newPostText;
+      this._noticeUser(this._state);
+    } else if (action.type === 'ADD-DIALOGUE'){
+      let newMessage = {
+        text: this._state.messagesPage.newMessageText
+      }
+      this._state.messagesPage.messages.push(newMessage);
+      this._state.messagesPage.newMessageText = '';
+      this._noticeUser(this._state);
+    } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.messagesPage.newMessageText = action.newMessageText;
+      this._noticeUser(this._state);
+    }
+  }
+}
+export const addPostActionCreator = () => {
+  return {
+      type: 'ADD-POST'
+  }
+}
+export const updateNewPostActionCreator = (text) => {
+  return {
+      type: 'UPDATE-NEW-POST-TEXT',
+      newPostText: text
+  }
+}
+
+export const addDialogueActionCreator = () => {
+  return {
+    type: 'ADD-DIALOGUE'
+  }
+}
+
+export const updateNewMessageActionCreator = (text) => {
+  return {
+    type: 'UPDATE-NEW-MESSAGE-TEXT',
+    newMessageText: text
+  }
+}
 
 export default store
 window.store = store
