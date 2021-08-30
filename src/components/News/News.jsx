@@ -1,7 +1,7 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
 import React from 'react';
-import { addPostActionCreator,updateNewPostActionCreator } from '../Redux/state';
+import { addPostActionCreator,updateNewPostActionCreator } from '../Redux/news-reducer';
 
 
 const News = (props) => {
