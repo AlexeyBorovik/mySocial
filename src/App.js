@@ -10,15 +10,15 @@ import NewsContainer from './components/News/NewsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <SideBar />
         <div className="app-wrapper-content">
-          <Route render={() => < NewsContainer store={props.store}/>} path='/news' />
-          <Route render={() => < MessagesContainer store={props.store}/>} path='/messages' />
+          <Route render={() => < NewsContainer/>} path='/news' />
+          <Route render={() => < MessagesContainer/>} path='/messages' />
           <Route render={() => < Portfolio />} path='/portfolio' />
           <Route render={() => < Companies />} path='/companies' />
           <Route render={() => < Partners />} path='/partners' />

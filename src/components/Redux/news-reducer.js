@@ -2,29 +2,37 @@ const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
 let initialState = {
-    post: [
-      { id: 1, likes: 2, dislikes: 5, text: "What`s up guys?" },
-      { id: 2, likes: 3, dislikes: 3, text: "It`s fist posting in my life!" },
-      { id: 3, likes: 25, dislikes: 0, text: "Coronavirus ended!!! We can leave the F*** masks!!!" },
-    ],
-    newPostText: 'let`s share smth new in you`re life'
-  }
-  
+  post: [
+    { id: 1, likes: 2, dislikes: 5, text: "What`s up guys?" },
+    { id: 2, likes: 3, dislikes: 3, text: "It`s fist posting in my life!" },
+    { id: 3, likes: 25, dislikes: 0, text: "Coronavirus ended!!! We can leave the F*** masks!!!" },
+  ],
+  newPostText: 'let`s share smth new in you`re life'
+}
+
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+
+    case ADD_POST: {
       let newPost = {
         id: 5,
         likes: 6,
         dislikes: 2,
         text: state.newPostText,
       }
-      state.post.push(newPost);
-      state.newPostText = '';
-      return state
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newPostText;
-      return state
+      return {
+        ...state,
+        post: [...state.post, newPost],
+        newPostText: ''
+      }
+    }
+
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newPostText
+      }
+    }
     default: return state
   }
 }
