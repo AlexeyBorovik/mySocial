@@ -11,8 +11,8 @@ const Partners = (props) => {
                 </div>
                 <div>
                     {u.followed 
-                    ? <button onClick={()=> {props.follow(u.id)}} >Follow</button>
-                    : <button onClick={()=> {props.UnFollow(u.id)}} >Unfollow</button>}
+                    ? <button onClick={()=> {props.unFollow(u.id)}} >Unfollow</button>
+                    : <button onClick={()=> {props.follow(u.id)}} >Follow</button>}
                 </div>
             </span>
             <span>
