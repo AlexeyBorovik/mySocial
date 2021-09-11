@@ -1,11 +1,14 @@
 import { connect } from "react-redux";
-import { followAC, setUsersAC, unFollowAC } from "../Redux/partners-reducer";
+import { followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unFollowAC } from "../Redux/partners-reducer";
 import Partners from "./Partners";
 
 
 const mapStateToProps = (state) => {
     return {
-        user: state.partnersPage.user
+        users: state.partnersPage.users,
+        pageSize: state.partnersPage.pageSize,
+        totalUsersCount: state.partnersPage.totalUsersCount ,
+        currentPage: state.partnersPage.currentPage
     }
 }
 
@@ -18,10 +21,15 @@ const mapDispatchToProps = (dispatch) => {
         unFollow: (id) => {
             dispatch(unFollowAC(id))
         },
-        setUsers: (user) => {
-                dispatch(setUsersAC(user))
-            }
-        }
+        setUsers: (users) => {
+                dispatch(setUsersAC(users))
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        }, 
+        setTotalUsersCount: (totalCount) => {
+            dispatch(setTotalUsersCountAC(totalCount))
+        }}
     }
 
 const PartnersContainer = connect(mapStateToProps, mapDispatchToProps)(Partners)
