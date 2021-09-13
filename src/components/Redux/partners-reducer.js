@@ -11,8 +11,8 @@ let initialState = {
     { id: 3, name: 'Andrew', followed: false, status: `I'm on chill, drink beer i can)`, photoUrl: "https://i.pinimg.com/originals/6f/bb/f9/6fbbf9b14522436722eabac9610aeb68.png", location: { city: 'Kiev', country: 'Ukraine' } },
     { id: 4, name: 'Pablo', followed: false, status: 'Who want to stole me to the Dubai?', photoUrl: "https://i.pinimg.com/originals/6f/bb/f9/6fbbf9b14522436722eabac9610aeb68.png", location: { city: 'Warsaw', country: 'Poland' } }
   */],
-  pageSize: 5,
-  totalUsersCount: 6,
+  pageSize: 25,
+  totalUsersCount: 1,
   currentPage: 1
 
 
