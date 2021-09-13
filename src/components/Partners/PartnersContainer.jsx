@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, toggleIsFetchingAC, unFollowAC } from "../Redux/partners-reducer";
+import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow } from "../Redux/partners-reducer";
 import Partners from "./Partners";
 import React from 'react';
 import * as axios from 'axios';
@@ -30,7 +30,7 @@ class PartnersContainer extends React.Component {
 
     render() {
         return (<div>
-            {this.props.isFetching ? <Preloader/> : null }
+            {this.props.isFetching ? <Preloader /> : null}
 
             <Partners
                 totalUsersCount={this.props.totalUsersCount}
@@ -61,29 +61,10 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (id) => {
-            dispatch(followAC(id))
-        },
-        unFollow: (id) => {
-            dispatch(unFollowAC(id))
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users))
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setTotalUsersCount: (totalCount) => {
-            dispatch(setTotalUsersCountAC(totalCount))
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching))
-        }
-    }
+
+export default connect(mapStateToProps, {
+    follow, unFollow, setUsers,
+    setCurrentPage, setTotalUsersCount, toggleIsFetching,
 }
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(PartnersContainer)
+)
+    (PartnersContainer)
