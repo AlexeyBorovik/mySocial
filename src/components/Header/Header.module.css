@@ -13,3 +13,7 @@
     color: green;
     font-weight: 1200;
   }
+
+  .loginBlock {
+    float: right;
+  }

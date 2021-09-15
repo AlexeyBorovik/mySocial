@@ -1,6 +1,5 @@
 import { Route } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header.jsx';
 import SideBar from './components/SideBar/SideBar.jsx';
 import Portfolio from './components/Portfolio/Portfolio';
 import Companies from './components/Companies/Companies';
@@ -9,12 +8,13 @@ import NewsContainer from './components/News/NewsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import PartnersContainer from './components/Partners/PartnersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 const App = () => {
   return (
       <div className="app-wrapper">
-        <Header />
+        <HeaderContainer />
         <SideBar />
         <div className="app-wrapper-content">
           <Route render={() => < ProfileContainer/>} path='/profile/:userId?' />
