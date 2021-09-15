@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header.jsx';
 import SideBar from './components/SideBar/SideBar.jsx';
@@ -8,15 +8,16 @@ import Music from './components/Music/Music';
 import NewsContainer from './components/News/NewsContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import PartnersContainer from './components/Partners/PartnersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 const App = () => {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <SideBar />
         <div className="app-wrapper-content">
+          <Route render={() => < ProfileContainer/>} path='/profile/:userId?' />
           <Route render={() => < NewsContainer/>} path='/news' />
           <Route render={() => < MessagesContainer/>} path='/messages' />
           <Route render={() => < Portfolio />} path='/portfolio' />
@@ -25,7 +26,6 @@ const App = () => {
           <Route render={() => < Music />} path='/music' />
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 

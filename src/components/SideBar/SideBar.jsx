@@ -5,6 +5,8 @@ const SideBar = () => {
     return (
         <div className={classes.sidebar}>
             <div>
+                <NavLink to='/profile' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Profile</NavLink></div>
+            <div>    
                 <NavLink to='/news' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>News</NavLink></div>
             <div>
                 <NavLink to='/messages' className={classes.link} activeClassName={`${classes.link} ${classes.active}`}>Messages</NavLink></div>
