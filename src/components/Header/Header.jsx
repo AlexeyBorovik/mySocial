@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css'
 
 const Header = (props) => {
-    debugger
     return (
         <div className={classes.header}>
             <img src = "/Images/LOGO.png" alt =""/>
