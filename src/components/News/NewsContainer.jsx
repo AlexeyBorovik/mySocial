@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addPostActionCreator, updateNewPostActionCreator } from '../Redux/news-reducer';
+import { addPostActionCreator, updateNewPostActionCreator } from './../../Redux/news-reducer';
 import News from './News';
 
 
