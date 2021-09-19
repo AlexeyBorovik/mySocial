@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow } from "./../../Redux/partners-reducer";
+import { follow, setCurrentPage, setTotalUsersCount, setUsers, toggleIsFetching, unFollow, toggleIsFollowingProgress } from "./../../Redux/partners-reducer";
 import Partners from "./Partners";
 import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
@@ -44,6 +44,8 @@ class PartnersContainer extends React.Component {
                 follow={this.props.follow}
                 onPageChanged={this.onPageChanged}
                 isFetching={this.props.isFetching}
+                toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
+                followingInProgress={this.props.followingInProgress}
             />
         </div>
         )
@@ -58,7 +60,8 @@ const mapStateToProps = (state) => {
         pageSize: state.partnersPage.pageSize,
         totalUsersCount: state.partnersPage.totalUsersCount,
         currentPage: state.partnersPage.currentPage,
-        isFetching: state.partnersPage.isFetching
+        isFetching: state.partnersPage.isFetching,
+        followingInProgress: state.partnersPage.followingInProgress
     }
 }
 
@@ -67,6 +70,7 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     follow, unFollow, setUsers,
     setCurrentPage, setTotalUsersCount, toggleIsFetching,
+    toggleIsFollowingProgress
 }
 )
     (PartnersContainer)

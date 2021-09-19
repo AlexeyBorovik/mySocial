@@ -29,23 +29,31 @@ let Partners = (props) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button onClick={() => {
-                                followAPI.UnFollow(u.id)
-                                    .then(response => {
-                                        if (response.resultCode === 0) {
-                                            props.unFollow(u.id)
-                                        }
-                                    })
-                            }}>Unfollow</button>
+                            ? <button
+                                disabled={props.followingInProgress.some(id => id === u.id)}
+                                onClick={() => {
+                                    props.toggleIsFollowingProgress(true, u.id)
+                                    followAPI.UnFollow(u.id)
+                                        .then(response => {
+                                            if (response.resultCode === 0) {
+                                                props.unFollow(u.id)
+                                            }
+                                            props.toggleIsFollowingProgress(false, u.id)
+                                        })
+                                }}>Unfollow</button>
 
-                            : <button onClick={() => {
-                                followAPI.follow(u.id)
-                                    .then(response => {
-                                        if (response.resultCode === 1) {
-                                            props.follow(u.id)
-                                        }
-                                    })
-                            }}>Follow</button>}
+                            : <button
+                                disabled={props.followingInProgress.some(id => id === u.id)}
+                                onClick={() => {
+                                    props.toggleIsFollowingProgress(true, u.id)
+                                    followAPI.follow(u.id)
+                                        .then(response => {
+                                            if (response.resultCode === 1) {
+                                                props.follow(u.id)
+                                            }
+                                            props.toggleIsFollowingProgress(false, u.id)
+                                        })
+                                }}>Follow</button>}
                     </div>
                 </span>
                 <span>
