@@ -1,9 +1,12 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
 import React from 'react';
+import { Redirect } from 'react-router';
 
 
 const News = (props) => {
+
+    if(!props.isAuth) return <Redirect to={'/login'} />
 
     let postsElements = 
     props.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)

@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
     return {
         dialogues: state.messagesPage.dialogues,
         messages: state.messagesPage.messages,
-        newMessageText: state.messagesPage.newMessageText
+        newMessageText: state.messagesPage.newMessageText,
+        isAuth: state.auth.isAuth
     }
 }
 

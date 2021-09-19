@@ -3,6 +3,7 @@ import { follow, getUsers, unFollow, getDataPageChange } from "./../../Redux/par
 import Partners from "./Partners";
 import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
+import { Redirect } from "react-router";
 
 
 class PartnersContainer extends React.Component {
@@ -17,6 +18,9 @@ class PartnersContainer extends React.Component {
     }
 
     render() {
+    
+        if (!this.props.isAuth) return <Redirect to={'/login'}/>  
+    
         return (<div>
             {this.props.isFetching ? <Preloader /> : null}
 
@@ -47,7 +51,8 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.partnersPage.totalUsersCount,
         currentPage: state.partnersPage.currentPage,
         isFetching: state.partnersPage.isFetching,
-        followingInProgress: state.partnersPage.followingInProgress
+        followingInProgress: state.partnersPage.followingInProgress,
+        isAuth: state.auth.isAuth
     }
 }
 

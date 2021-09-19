@@ -9,6 +9,7 @@ import MessagesContainer from './components/Messages/MessagesContainer';
 import PartnersContainer from './components/Partners/PartnersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route render={() => < Companies />} path='/companies' />
           <Route render={() => < PartnersContainer />} path='/partners' />
           <Route render={() => < Music />} path='/music' />
+          <Route render={() => < Login />} path='/login' />
         </div>
       </div>
   );

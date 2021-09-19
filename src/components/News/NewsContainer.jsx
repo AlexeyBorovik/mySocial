@@ -6,7 +6,8 @@ import News from './News';
 const mapStateToProps = (state) => {
     return {
         post: state.newsPage.post,
-        newPostText: state.newsPage.newPostText
+        newPostText: state.newsPage.newPostText,
+        isAuth: state.auth.isAuth
     }
 }
 
