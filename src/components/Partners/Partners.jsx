@@ -2,7 +2,6 @@ import React from 'react'
 import style from './Partners.module.css'
 import userPhoto from './../../assets/images/user.jpeg'
 import { NavLink } from 'react-router-dom'
-import { followAPI } from './../../api/api'
 
 
 let Partners = (props) => {
@@ -32,27 +31,13 @@ let Partners = (props) => {
                             ? <button
                                 disabled={props.followingInProgress.some(id => id === u.id)}
                                 onClick={() => {
-                                    props.toggleIsFollowingProgress(true, u.id)
-                                    followAPI.UnFollow(u.id)
-                                        .then(response => {
-                                            if (response.resultCode === 0) {
-                                                props.unFollow(u.id)
-                                            }
-                                            props.toggleIsFollowingProgress(false, u.id)
-                                        })
+                                    props.unFollow(u.id)
                                 }}>Unfollow</button>
 
                             : <button
                                 disabled={props.followingInProgress.some(id => id === u.id)}
                                 onClick={() => {
-                                    props.toggleIsFollowingProgress(true, u.id)
-                                    followAPI.follow(u.id)
-                                        .then(response => {
-                                            if (response.resultCode === 1) {
-                                                props.follow(u.id)
-                                            }
-                                            props.toggleIsFollowingProgress(false, u.id)
-                                        })
+                                    props.follow(u.id)
                                 }}>Follow</button>}
                     </div>
                 </span>
