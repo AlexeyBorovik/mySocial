@@ -1,5 +1,4 @@
 const ADD_DIALOGUE = 'ADD-DIALOGUE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
 
 let initialState = {
   dialogues: [
@@ -17,42 +16,27 @@ let initialState = {
     { text: 'You`re awesome' },
     { text: 'Hey Niko, it`s Roman' },
     { text: 'Why are you ignoring me?! You`re coding again?!' }
-  ],
-  newMessageText: 'Type here...'
+  ]
 }
 
 
 const messageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DIALOGUE:
-      let newMessage = {
-        text: state.newMessageText
-      }
       return {
         ...state,
-        messages: [...state.messages, newMessage],
-        newMessageText: ''
-      }
-    case UPDATE_NEW_MESSAGE_TEXT:
-      return {
-        ...state,
-        newMessageText: action.newMessageText
+        messages: [...state.messages, {text: action.newMessageBody}],
       }
     default: return state
   }
 }
 
-export const addDialogueActionCreator = () => {
+export const addDialogueActionCreator = (newMessageBody) => {
   return {
-    type: 'ADD-DIALOGUE'
+    type: 'ADD-DIALOGUE',
+    newMessageBody: newMessageBody
   }
 }
 
-export const updateNewMessageActionCreator = (text) => {
-  return {
-    type: 'UPDATE-NEW-MESSAGE-TEXT',
-    newMessageText: text
-  }
-}
 
 export default messageReducer

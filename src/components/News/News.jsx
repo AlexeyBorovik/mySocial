@@ -1,28 +1,22 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
 
 const News = (props) => {
 
-    let postsElements = 
-    props.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
+    let postsElements =
+        props.post.map(post => <Post text={post.text} likes={post.likes} dislikes={post.dislikes} />)
 
-    let newPostElement = React.createRef();
 
-    let addPost = () => {
-        props.addPost();
-    }
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+    let addPost = (values) => {
+        props.addPost(values.newPostText)
     }
 
     return (<div className={classes.news} >
         <div>
-            <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
-            <br></br>
-            <button onClick={addPost}>Add</button>
+            <AddPostFormRedux onSubmit={addPost} />
         </div>
 
         <div>
@@ -31,6 +25,17 @@ const News = (props) => {
     </div>
     );
 }
+
+const AddPostForm = (props) => {
+    return <div>
+        <form onSubmit={props.handleSubmit}>
+            <Field name='newPostText' component='textarea' placeholder='Type here...' />
+            <button>Add</button>
+        </form>
+    </div>
+}
+
+const AddPostFormRedux = reduxForm({ form: 'newPostAddForm' })(AddPostForm)
 
 
 export default News;
