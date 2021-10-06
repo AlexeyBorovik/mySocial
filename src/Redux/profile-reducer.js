@@ -29,9 +29,6 @@ export const setStatus = (status) => ({ type: SET_STATUS, status })
 
 export const setUser = (userId) => {
     return (dispatch) => {
-        if (!userId) {
-            userId = 19539;
-        }
         profileAPI.getUser(userId)
             .then(response => {
                 dispatch(setUserProfile(response));
