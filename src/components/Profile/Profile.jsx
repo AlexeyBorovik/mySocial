@@ -2,7 +2,8 @@ import React from 'react'
 import style from './Profile.module.css'
 import userPhoto from './../../assets/images/user.jpeg'
 import Preloader from '../common/Preloader/Preloader'
-import ProfileStatus from './ProfileStatus'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
+//import ProfileStatus from './ProfileStatus'
 
 const Profile = (props) => {
 
@@ -15,7 +16,7 @@ const Profile = (props) => {
             <img alt="" className={style.ava} src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} />
         </div>
         <div>Nick Name: {props.profile.fullName}</div>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
         <div>location</div>
     </div>
 }
