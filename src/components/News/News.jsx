@@ -1,7 +1,7 @@
 import classes from './News.module.css'
 import Post from './Posts/Post';
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from './../utilities/validators/validator.js'
 import { createField, Textarea } from './../common/FormsControls/FormsControls.js'
 
