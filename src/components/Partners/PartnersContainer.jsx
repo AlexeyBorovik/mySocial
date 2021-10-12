@@ -5,18 +5,21 @@ import React from 'react';
 import Preloader from '../common/Preloader/Preloader';
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersSelector } from "../../Redux/partners-selectors";
+import { getCurrentPage, getFollowingInProgress, getIsFetching,
+    getPageSize, getTotalUsersCount, getUsersSelector } from "../../Redux/partners-selectors";
 
 
 class PartnersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        const {currentPage, pageSize} = this.props
+        this.props.getUsers(currentPage, pageSize)
     }
 
 
-    onPageChanged = (pageNumber) => {          
-        this.props.getDataPageChange(pageNumber, this.props.pageSize)
+    onPageChanged = (pageNumber) => { 
+        const {pageSize} = this.props 
+        this.props.getDataPageChange(pageNumber, pageSize)
     }
 
     render() {

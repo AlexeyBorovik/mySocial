@@ -2,8 +2,8 @@ import classes from './Messages.module.css'
 import Message from './Message'
 import DialogueItem from './DialogueItem'
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import {Textarea} from './../common/FormsControls/FormsControls.js'
+import { reduxForm } from 'redux-form'
+import { createField, Textarea } from './../common/FormsControls/FormsControls.js'
 import { maxLengthCreator, required } from '../utilities/validators/validator'
 
 const Messages = (props) => {
@@ -20,7 +20,7 @@ const Messages = (props) => {
     return (
         <div className={classes.wrapper}>
             <div>
-            <AddMessageFormRedux onSubmit={addNewMessage}/>
+                <AddMessageFormRedux onSubmit={addNewMessage} />
             </div>
 
             <div className={classes.dialoguesList}>
@@ -40,13 +40,12 @@ const maxLength20 = maxLengthCreator(20)
 const AddMessageForm = (props) => {
     return <div>
         <form onSubmit={props.handleSubmit} >
-            <Field component={Textarea} name='newMessageBody' placeholder='Type here...'
-            validate={[required, maxLength20]}/>
+            {createField("Type here...", Textarea, 'newMessageBody', [required, maxLength20])}
             <button>Add</button>
         </form>
     </div>
 }
 
-const AddMessageFormRedux = reduxForm({form: 'dialogueAddMessageForm'})(AddMessageForm)
+const AddMessageFormRedux = reduxForm({ form: 'dialogueAddMessageForm' })(AddMessageForm)
 
 export default Messages;
