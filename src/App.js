@@ -1,6 +1,6 @@
 import React from 'react';
 import store from './Redux/redux-store';
-import { Route, withRouter, BrowserRouter } from 'react-router-dom';
+import { Route, withRouter, HashRouter } from 'react-router-dom';
 import { Component } from 'react';
 import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
@@ -65,11 +65,11 @@ const AppContainer = compose(
 
 const MyReactApp = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
             <Provider store={store}>
                 <AppContainer />
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
   )
 }
 
