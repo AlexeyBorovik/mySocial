@@ -1,21 +1,23 @@
+import React from 'react';
+import store from './Redux/redux-store';
 import { Route, withRouter, BrowserRouter } from 'react-router-dom';
-import './App.css';
-import SideBar from './components/SideBar/SideBar.jsx';
-import Portfolio from './components/Portfolio/Portfolio';
-import Companies from './components/Companies/Companies';
-import Music from './components/Music/Music';
-import NewsContainer from './components/News/NewsContainer';
-import MessagesContainer from './components/Messages/MessagesContainer';
-import PartnersContainer from './components/Partners/PartnersContainer';
-import ProfileContainer from './components/Profile/ProfileContainer';
-import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
 import { Component } from 'react';
 import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './Redux/app-reducer';
+import './App.css';
 import Preloader from './components/common/Preloader/Preloader';
-import store from './Redux/redux-store';
+import Login from './components/Login/Login';
+import SideBar from './components/SideBar/SideBar.jsx';
+import Portfolio from './components/Portfolio/Portfolio';
+import Companies from './components/Companies/Companies';
+import Music from './components/Music/Music';
+
+const NewsContainer = React.lazy(() => import ('./components/News/NewsContainer')) ;
+const MessagesContainer = React.lazy(() => import ('./components/Messages/MessagesContainer'));
+const PartnersContainer = React.lazy(() => import ('./components/Partners/PartnersContainer'));
+const ProfileContainer = React.lazy(() => import ('./components/Profile/ProfileContainer'));
+const HeaderContainer = React.lazy(() => import ('./components/Header/HeaderContainer'));
 
 
 
@@ -31,6 +33,7 @@ class App extends Component {
       return <Preloader />
     }
     return (
+      <React.Suspense fallback={<Preloader/>}>
       <div className="app-wrapper">
         <HeaderContainer />
         <SideBar />
@@ -45,6 +48,7 @@ class App extends Component {
           <Route render={() => < Login />} path='/login' />
         </div>
       </div>
+      </React.Suspense>
     );
   }
 }
