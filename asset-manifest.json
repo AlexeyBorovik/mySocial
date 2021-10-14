@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/myCocial/static/css/main.1dd2c6d0.chunk.css",
-    "main.js": "/myCocial/static/js/main.45b102d7.chunk.js",
-    "main.js.map": "/myCocial/static/js/main.45b102d7.chunk.js.map",
+    "main.js": "/myCocial/static/js/main.d44726bd.chunk.js",
+    "main.js.map": "/myCocial/static/js/main.d44726bd.chunk.js.map",
     "runtime-main.js": "/myCocial/static/js/runtime-main.bc680dca.js",
     "runtime-main.js.map": "/myCocial/static/js/runtime-main.bc680dca.js.map",
     "static/js/2.20d9c647.chunk.js": "/myCocial/static/js/2.20d9c647.chunk.js",
@@ -39,6 +39,6 @@
     "static/js/runtime-main.bc680dca.js",
     "static/js/2.20d9c647.chunk.js",
     "static/css/main.1dd2c6d0.chunk.css",
-    "static/js/main.45b102d7.chunk.js"
+    "static/js/main.d44726bd.chunk.js"
   ]
 }
