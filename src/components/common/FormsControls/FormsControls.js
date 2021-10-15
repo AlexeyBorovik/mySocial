@@ -26,7 +26,7 @@ export const Input = ({ input, meta, ...props }) => {
     return (
         <div className={classes.formControl + '' + (isError ? classes.error : "")}>
             <div>
-                <textarea {...input} {...props}></textarea>
+                <input {...input} {...props}></input>
             </div>
             <div>
                 {isError && <span>{meta.error}</span>}

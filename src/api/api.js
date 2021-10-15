@@ -19,7 +19,7 @@ export const usersAPI = {
 }
 
 export const followAPI = {
-    UnFollow(userId) {
+    unFollow(userId) {
         return instance.delete(`follow/${userId}`)
         .then (response => {
             return response.data
@@ -63,6 +63,10 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
+    },
+
+    saveProfile(profile) {
+        return instance.put(`/profile`, profile)
     }
 }
 

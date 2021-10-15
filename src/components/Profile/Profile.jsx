@@ -1,32 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Profile.module.css'
 import userPhoto from './../../assets/images/user.jpeg'
 import Preloader from '../common/Preloader/Preloader'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
+import ProfileInfoForm from './ProfileInfoForm'
 
 
-const Profile = (props) => {
+const Profile = ({ isOwner, profile, status, updateStatus, savePhoto, saveProfile }) => {
 
-    if (!props.profile) {
+    let [editMode, setEditMode] = useState(false)
+
+    if (!profile) {
         return <Preloader />
     }
 
     const onPhotoSelected = (e) => {
-        if(e.target.files.length) {
-            props.savePhoto(e.target.files[0])
+        if (e.target.files.length) {
+            savePhoto(e.target.files[0])
         }
+    }
+    const onSubmit = (formData) => {
+        saveProfile(formData).then(() => {
+            setEditMode(false)
+        })
     }
 
     return <div className={style.name}>
         <div>
-            <img alt="" className={style.ava} 
-            src={props.profile.photos.large !== null ? 
-            props.profile.photos.large 
-            : userPhoto} />
+            <img alt="" className={style.ava}
+                src={profile.photos.large || userPhoto} />
         </div>
-        {props.isOwner && <input type={'file'} onChange={onPhotoSelected}></input>}
-        <div>Nick Name: {props.profile.fullName}</div>
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+        {isOwner && <input type={'file'} onChange={onPhotoSelected}></input>}
+
+        {editMode
+            ? <ProfileInfoForm profile={profile} initialValues={profile} onSubmit={onSubmit} />
+            : <ProfileInfo profile={profile} isOwner={isOwner} activateEditMode={() => { setEditMode(true) }} />}
+
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
     </div>
 }
 
